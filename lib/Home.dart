@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:project_uas/Profile.dart';
-import 'file:///C:/Users/user/Documents/UjiCoba/project_uas/lib/widget/RadioButton.dart';
-import 'widget/ItemNumber.dart';
+import 'package:project_uas/widget/ItemNumber.dart';
+import 'package:project_uas/widget/RadioButton.dart';
 
 class Home extends StatefulWidget {
   static const routeName = "/home";
@@ -19,14 +19,14 @@ class _HomeState extends State<Home> {
   var bin = -1;
 
   var hexValue = "0";
-  int decValue = 0;
-  int octValue = 0;
-  int binValue = 0;
+  num decValue = 0;
+  num octValue = 0;
+  num binValue = 0;
 
   @override
   void initState() {
     ctrlBil.addListener(() {
-      if (!(ctrlBil.text.length <= 0)) {
+      if (ctrlBil.text.length > 0) {
         setState(() {
           if (hex == 0) {
             convertHex();
@@ -41,6 +41,12 @@ class _HomeState extends State<Home> {
       }
     });
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    ctrlBil.dispose();
+    super.dispose();
   }
 
   @override
@@ -82,6 +88,7 @@ class _HomeState extends State<Home> {
                 Expanded(
                   child: TextField(
                     controller: ctrlBil,
+                    //maxLength: 19,
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(labelText: "Enter your number"),
@@ -92,11 +99,6 @@ class _HomeState extends State<Home> {
             SizedBox(
               height: 10,
             ),
-//            Container(
-//              margin: EdgeInsets.only(top: 10, bottom: 10),
-//              height: 1,
-//              color: Colors.black45,
-//            ),
             ItemNumber(
               "Hex",
               value: hexValue,
@@ -199,32 +201,34 @@ class _HomeState extends State<Home> {
   void convertHex() {
     int v = int.parse(ctrlBil.text.toString(), radix: 16);
     hexValue = v.toRadixString(16);
-    decValue = int.parse(v.toRadixString(10));
-    octValue = int.parse(v.toRadixString(8));
-    binValue = int.parse(v.toRadixString(2));
+    decValue = num.parse(v.toRadixString(10));
+    octValue = num.parse(v.toRadixString(8));
+    binValue = num.parse(v.toRadixString(2));
   }
 
   void convertDec() {
-    int v = int.parse(ctrlBil.text.toString());
+    print("Method convertDec");
+    int v = num.parse(ctrlBil.text.toString());
     hexValue = v.toRadixString(16);
-    decValue = int.parse(v.toRadixString(10));
-    octValue = int.parse(v.toRadixString(8));
-    binValue = int.parse(v.toRadixString(2));
+    decValue = num.parse(v.toRadixString(10));
+    octValue = num.parse(v.toRadixString(8));
+    binValue = num.parse(v.toRadixString(2));
+    print(decValue);
   }
 
   void convertBin() {
     int v = int.parse(ctrlBil.text.toString(), radix: 2);
     hexValue = v.toRadixString(16);
-    decValue = int.parse(v.toRadixString(10));
-    octValue = int.parse(v.toRadixString(8));
-    binValue = int.parse(v.toRadixString(2));
+    decValue = num.parse(v.toRadixString(10));
+    octValue = num.parse(v.toRadixString(8));
+    binValue = num.parse(v.toRadixString(2));
   }
 
   void convertOct() {
     int v = int.parse(ctrlBil.text.toString(), radix: 8);
     hexValue = v.toRadixString(16);
-    decValue = int.parse(v.toRadixString(10));
-    octValue = int.parse(v.toRadixString(8));
-    binValue = int.parse(v.toRadixString(2));
+    decValue = num.parse(v.toRadixString(10));
+    octValue = num.parse(v.toRadixString(8));
+    binValue = num.parse(v.toRadixString(2));
   }
 }

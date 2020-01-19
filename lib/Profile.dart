@@ -25,15 +25,26 @@ class Profile extends StatelessWidget {
         child: Stack(
           children: <Widget>[
             Container(),
-            InkWell(
-              onTap: () => Navigator.pop(context),
-              child: Container(
-                padding: EdgeInsets.all(16),
-                child: Icon(
-                  Icons.arrow_back,
-                  color: Colors.white,
+            Row(
+              children: <Widget>[
+                InkWell(
+                  onTap: () => Navigator.pop(context),
+                  child: Container(
+                    padding: EdgeInsets.all(16),
+                    child: Icon(
+                      Icons.arrow_back,
+                      color: Colors.white,
+                    ),
+                  ),
                 ),
-              ),
+                Container(
+                  margin: EdgeInsets.only(left: 16),
+                  child: Text(
+                    "Profile",
+                    style: TextStyle(color: Colors.white,fontSize: 20,fontWeight: FontWeight.w500),
+                  ),
+                )
+              ],
             ),
             Positioned(
               bottom: 60,

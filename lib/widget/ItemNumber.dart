@@ -14,12 +14,11 @@ class ItemNumber extends StatelessWidget {
       child: Row(
         children: <Widget>[
           Container(
-            width: 25,
+            constraints: BoxConstraints(minWidth: 40, maxWidth: 100),
             child: Text(
               name,
               style: TextStyle(fontWeight: FontWeight.w700),
             ),
-            margin: EdgeInsets.only(right: 16),
           ),
           Container(
             child: Text(value.toString(),

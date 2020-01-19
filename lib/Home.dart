@@ -220,7 +220,7 @@ class _HomeState extends State<Home> {
     hexValue = v.toRadixString(16);
     decValue = v.toRadixString(10);
     octValue = v.toRadixString(8);
-    binValue = v.toRadixString(2); // todo Invalid radix-2 number (at character 1)
+    binValue = v.toRadixString(2);
   }
 
   //192901233005401242

@@ -221,7 +221,7 @@ class _HomeState extends State<Home> {
     hexValue = v.toRadixString(16);
     decValue = num.parse(v.toRadixString(10));
     octValue = num.parse(v.toRadixString(8));
-    binValue = num.parse(v.toRadixString(2));
+    binValue = num.parse(v.toRadixString(2)); // todo Invalid radix-2 number (at character 1)
   }
 
   void convertOct() {

@@ -19,9 +19,9 @@ class _HomeState extends State<Home> {
   var bin = -1;
 
   var hexValue = "0";
-  num decValue = 0;
-  num octValue = 0;
-  num binValue = 0;
+  String decValue = "0";
+  String octValue = "0";
+  String binValue = "0";
 
   @override
   void initState() {
@@ -88,7 +88,7 @@ class _HomeState extends State<Home> {
                 Expanded(
                   child: TextField(
                     controller: ctrlBil,
-                    //maxLength: 19,
+                    maxLength: 19,
                     textInputAction: TextInputAction.next,
                     keyboardType: TextInputType.text,
                     decoration: InputDecoration(labelText: "Enter your number"),
@@ -199,36 +199,36 @@ class _HomeState extends State<Home> {
   }
 
   void convertHex() {
-    int v = int.parse(ctrlBil.text.toString(), radix: 16);
+    BigInt v = BigInt.parse(ctrlBil.text.toString(), radix: 16);
     hexValue = v.toRadixString(16);
-    decValue = num.parse(v.toRadixString(10));
-    octValue = num.parse(v.toRadixString(8));
-    binValue = num.parse(v.toRadixString(2));
+    decValue = v.toRadixString(10);
+    octValue = v.toRadixString(8);
+    binValue = v.toRadixString(2);
   }
 
   void convertDec() {
-    print("Method convertDec");
-    int v = num.parse(ctrlBil.text.toString());
+    BigInt v = BigInt.parse(ctrlBil.text.toString());
     hexValue = v.toRadixString(16);
-    decValue = num.parse(v.toRadixString(10));
-    octValue = num.parse(v.toRadixString(8));
-    binValue = num.parse(v.toRadixString(2));
-    print(decValue);
+    decValue = v.toRadixString(10);
+    octValue = v.toRadixString(8);
+    binValue = v.toRadixString(2);
+    print(v.toRadixString(2));
   }
 
   void convertBin() {
-    int v = int.parse(ctrlBil.text.toString(), radix: 2);
+    BigInt v = BigInt.parse(ctrlBil.text.toString(), radix: 2);
     hexValue = v.toRadixString(16);
-    decValue = num.parse(v.toRadixString(10));
-    octValue = num.parse(v.toRadixString(8));
-    binValue = num.parse(v.toRadixString(2)); // todo Invalid radix-2 number (at character 1)
+    decValue = v.toRadixString(10);
+    octValue = v.toRadixString(8);
+    binValue = v.toRadixString(2); // todo Invalid radix-2 number (at character 1)
   }
 
+  //192901233005401242
   void convertOct() {
-    int v = int.parse(ctrlBil.text.toString(), radix: 8);
+    BigInt v = BigInt.parse(ctrlBil.text.toString(), radix: 8);
     hexValue = v.toRadixString(16);
-    decValue = num.parse(v.toRadixString(10));
-    octValue = num.parse(v.toRadixString(8));
-    binValue = num.parse(v.toRadixString(2));
+    decValue = v.toRadixString(10);
+    octValue = v.toRadixString(8);
+    binValue = v.toRadixString(2);
   }
 }

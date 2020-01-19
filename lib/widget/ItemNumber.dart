@@ -17,6 +17,7 @@ class _ItemNumberState extends State<ItemNumber> {
     return Container(
       margin: widget.margin,
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Container(
             constraints: BoxConstraints(minWidth: 40, maxWidth: 100),
@@ -25,9 +26,16 @@ class _ItemNumberState extends State<ItemNumber> {
               style: TextStyle(fontWeight: FontWeight.w700),
             ),
           ),
-          Container(
-            child: Text(widget.value.toString(),
-                style: TextStyle(fontWeight: FontWeight.w700)),
+          Flexible(
+            child: Text(
+              widget.value.toString().toUpperCase(),
+              overflow: TextOverflow.ellipsis,
+              softWrap: true,
+              style: TextStyle(
+                fontWeight: FontWeight.w700,
+              ),
+              maxLines: 2,
+            ),
           ),
         ],
       ),
